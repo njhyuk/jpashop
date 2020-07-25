@@ -1,6 +1,7 @@
 package jpabook.jpashop.Domain.Item;
 
 import jpabook.jpashop.Domain.Category;
+import jpabook.jpashop.Exception.NotEnoughStockException;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,4 +30,17 @@ public abstract class Item {
             inverseJoinColumns = @JoinColumn(name = "item_id")
     )
     private List<Category> categories = new ArrayList<>();
+
+    public void addStock(int quantity) {
+        this.stockQuantity += quantity;
+    }
+
+    public void removeStock(int quantity) {
+        int restStock = this.stockQuantity - quantity;
+        if(restStock < 0) {
+            throw new NotEnoughStockException("need more stock");
+        }
+
+        this.stockQuantity = restStock;
+    }
 }
