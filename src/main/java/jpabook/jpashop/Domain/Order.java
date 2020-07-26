@@ -50,6 +50,7 @@ public class Order {
         delivery.setOrder(this);
     }
 
+    // 실제 저장 명령을 사용하지 않았으나, 트랜잭션 어노테이션 내 플러쉬 시점에 저장됨
     public static Order createOrder(Member member, Delivery delivery, OrderItem... orderItems) {
         Order order = new Order();
         order.setMember(member);
