@@ -34,9 +34,11 @@ public class InitDb {
 
             Book book1 = new Book();
             createBook(book1, "JPA1 BOOK", 10000, 100);
+            em.persist(book1);
 
             Book book2 = new Book();
             createBook(book2, "JPA2 BOOK", 20000, 100);
+            em.persist(book2);
 
             OrderItem orderItem1 = OrderItem.createOrderItem(book1, 10000, 1);
             OrderItem orderItem2 = OrderItem.createOrderItem(book1, 20000, 2);
@@ -53,9 +55,11 @@ public class InitDb {
 
             Book book1 = new Book();
             createBook(book1, "JPA1 BOOK", 20000, 200);
+            em.persist(book1);
 
             Book book2 = new Book();
             createBook(book2, "JPA2 BOOK", 40000, 300);
+            em.persist(book2);
 
             OrderItem orderItem1 = OrderItem.createOrderItem(book1, 20000, 3);
             OrderItem orderItem2 = OrderItem.createOrderItem(book1, 40000, 4);
